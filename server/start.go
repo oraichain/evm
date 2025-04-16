@@ -128,7 +128,7 @@ which accepts a path for the resulting pprof file.
 			withTM, _ := cmd.Flags().GetBool(srvflags.WithCometBFT)
 			if !withTM {
 				serverCtx.Logger.Info("starting ABCI without Tendermint")
-				return startStandAlone(serverCtx, opts)
+				// return startStandAlone(serverCtx, opts)
 			}
 
 			serverCtx.Logger.Info("Unlocking keyring")
