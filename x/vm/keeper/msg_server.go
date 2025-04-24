@@ -142,3 +142,17 @@ func (k *Keeper) UpdateParams(goCtx context.Context, req *types.MsgUpdateParams)
 
 	return &types.MsgUpdateParamsResponse{}, nil
 }
+
+func (k *Keeper) SetMappingEvmAddress(
+	goCtx context.Context,
+	msg *types.MsgSetMappingEvmAddress,
+) (*types.MsgSetMappingEvmAddressResponse, error) {
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	err := k.SetMappingEvmAddressInner(ctx, msg.Signer, msg.Pubkey)
+	if err != nil {
+		return nil, err
+	}
+
+	return &types.MsgSetMappingEvmAddressResponse{}, nil
+}
